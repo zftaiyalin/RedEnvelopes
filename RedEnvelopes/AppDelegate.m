@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "NewViewController.h"
+#import "UMVideoAd.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [UMVideoAd initAppID:@"a12d73ba9b12fd7a" appKey:@"2f95a5489d80fd98" cacheVideo:YES];
+    
+    //开启非wifi预缓存视频文件
+    [UMVideoAd videoDownloadOnUNWifi:YES];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UINavigationController *secondNavigationController = [[UINavigationController alloc]
-                                                          initWithRootViewController:[[ViewController alloc] init]];
+                                                          initWithRootViewController:[[NewViewController alloc] init]];
     
 
     secondNavigationController.navigationBar.barTintColor = [UIColor blackColor];
