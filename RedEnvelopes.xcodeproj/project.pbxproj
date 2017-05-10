@@ -15,6 +15,8 @@
 		6B510CED1EC31702007BBBC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B510CEB1EC31702007BBBC6 /* LaunchScreen.storyboard */; };
 		6B510CF81EC31702007BBBC6 /* RedEnvelopesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CF71EC31702007BBBC6 /* RedEnvelopesTests.m */; };
 		6B510D031EC31703007BBBC6 /* RedEnvelopesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510D021EC31703007BBBC6 /* RedEnvelopesUITests.m */; };
+		6B510D111EC31BBC007BBBC6 /* img_0026.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B510D101EC31BBC007BBBC6 /* img_0026.png */; };
+		6B510D131EC31C1D007BBBC6 /* img_0027.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B510D121EC31C1D007BBBC6 /* img_0027.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		6B510CFE1EC31703007BBBC6 /* RedEnvelopesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedEnvelopesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B510D021EC31703007BBBC6 /* RedEnvelopesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedEnvelopesUITests.m; sourceTree = "<group>"; };
 		6B510D041EC31703007BBBC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B510D101EC31BBC007BBBC6 /* img_0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0026.png; sourceTree = "<group>"; };
+		6B510D121EC31C1D007BBBC6 /* img_0027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0027.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				6B510CE11EC31702007BBBC6 /* AppDelegate.m */,
 				6B510CE31EC31702007BBBC6 /* ViewController.h */,
 				6B510CE41EC31702007BBBC6 /* ViewController.m */,
+				6B510D101EC31BBC007BBBC6 /* img_0026.png */,
+				6B510D121EC31C1D007BBBC6 /* img_0027.png */,
 				6B510CE61EC31702007BBBC6 /* Main.storyboard */,
 				6B510CE91EC31702007BBBC6 /* Assets.xcassets */,
 				6B510CEB1EC31702007BBBC6 /* LaunchScreen.storyboard */,
@@ -252,6 +258,8 @@
 				6B510CED1EC31702007BBBC6 /* LaunchScreen.storyboard in Resources */,
 				6B510CEA1EC31702007BBBC6 /* Assets.xcassets in Resources */,
 				6B510CE81EC31702007BBBC6 /* Main.storyboard in Resources */,
+				6B510D131EC31C1D007BBBC6 /* img_0027.png in Resources */,
+				6B510D111EC31BBC007BBBC6 /* img_0026.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
