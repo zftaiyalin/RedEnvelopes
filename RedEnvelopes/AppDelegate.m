@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "NewViewController.h"
-#import "UMVideoAd.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UMConfigInstance.appKey = @"592bbcf63eae25316d00206e";
+    UMConfigInstance.channelId = @"App Store";
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
-    [UMVideoAd initAppID:@"a12d73ba9b12fd7a" appKey:@"2f95a5489d80fd98" cacheVideo:YES];
     
-    //开启非wifi预缓存视频文件
-    [UMVideoAd videoDownloadOnUNWifi:YES];
-    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UINavigationController *secondNavigationController = [[UINavigationController alloc]

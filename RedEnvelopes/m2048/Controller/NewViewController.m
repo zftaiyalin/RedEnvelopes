@@ -8,19 +8,42 @@
 #import "M2ViewController.h"
 #import "NewViewController.h"
 #import "Masonry.h"
-#import "UMVideoAd.h"
+#import "NSObject+ALiHUD.h"
+#import "KaiViewController.h"
+#import "HongViewController.h"
+@import GoogleMobileAds;
 
-@interface NewViewController ()
-
+@interface NewViewController ()<GADRewardBasedVideoAdDelegate>{
+    BOOL isAdmob;
+    BOOL isRequestVideo;
+    UIAlertView *pinlunAlert;
+}
+@property(nonatomic, strong) GADInterstitial *interstitial;
 @end
 
 @implementation NewViewController
+
+-(void)huoqujifen{
+    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+    }else{
+        [self requestRewardedVideo];
+        isRequestVideo = YES;
+        [self showText:@"正在获取积分广告"];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"设置";
+    
+    [GADRewardBasedVideoAd sharedInstance].delegate = self;
     self.view.backgroundColor = [UIColor colorWithHexString:@"#efeff5"];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"观看广告" style:UIBarButtonItemStylePlain target:self action:@selector(huoqujifen)];
+    
+    self.navigationItem.rightBarButtonItem = item;
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -33,18 +56,44 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:_tableView];
     
+    GADBannerView *ban = [[GADBannerView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, 50)];
+    ban.adUnitID = @"ca-app-pub-3676267735536366/9857026939";
+    ban.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    [ban loadRequest:request];
+    
+    [self.view addSubview:ban];
+    
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.bottom.equalTo(self.view);
         make.top.equalTo(self.view).offset(50);
     }];
     
+    if (![[GADRewardBasedVideoAd sharedInstance] isReady]) {
+        [self requestRewardedVideo];
+    }
     
-    UMBannerView *bannerView = [UMVideoAd videoBannerPlayerFrame:CGRectMake(0, 64, self.view.frame.size.width, 50) videoBannerPlayCloseCallBackBlock:^(BOOL isLegal){
-        NSLog(@"关闭banner");
-        NSLog(@"close banner");
-    }];
+    [self createAndLoadInterstitial];
+}
+
+
+- (void)requestRewardedVideo {
+    GADRequest *request = [GADRequest request];
+    [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
+                                           withAdUnitID:@"ca-app-pub-3676267735536366/3810493335"];
+}
+
+- (void)createAndLoadInterstitial {
+    self.interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3676267735536366/5287226536"];
     
-    [self.view addSubview:bannerView];
+    GADRequest *request = [GADRequest request];
+    // Request test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made.
+//    request.testDevices = @[ kGADSimulatorID, @"fe9239b402756b9539e3beb3a686378d" ];
+    [self.interstitial loadRequest:request];
+    
 }
 
 -(void)push{
@@ -101,21 +150,114 @@
            }
     return cell;
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        if (alertView == pinlunAlert) {
+            NSString *appID = @"1241876168";
+            NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", appID];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pinglun"];
+        }else{
+            [self huoqujifen];
+        }
+        
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+//    HongViewController *ss = [[HongViewController alloc]init];
+//    [self.navigationController pushViewController:ss animated:YES];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"]) {
+        if (indexPath.section == 0) {
+            
+            
+            UIAlertView *infoAlert = [[UIAlertView alloc] initWithTitle:@"提示"message:@"观看广告开启插件" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"观看",nil];
+            [infoAlert show];
+            
+            
+        }else{
+            
+            if (self.interstitial.isReady && !isAdmob) {
+                isAdmob = YES;
+                [self.interstitial presentFromRootViewController:self];
+                
+            }else{
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                //将取出的storyboard里面的控制器被所需的控制器指着。
+                M2ViewController *jVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"M2028ViewController"];
+                [self presentViewController:jVC animated:NO completion:^{
+                    
+                }];
+            }
+        }
+
+    }else{
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //将取出的storyboard里面的控制器被所需的控制器指着。
-    M2ViewController *jVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"M2028ViewController"];
-    [self presentViewController:jVC animated:NO completion:^{
         
-    }];
+       pinlunAlert = [[UIAlertView alloc] initWithTitle:@"提示"message:@"五星好评开启插件权限" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"评论",nil];
+       [pinlunAlert show];
+        
+    }
+  
     
 }
 
 
+#pragma mark GADRewardBasedVideoAdDelegate implementation
+
+- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad is received.");
+    if (isRequestVideo) {
+        isRequestVideo = NO;
+        [self dismissLoading];
+        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+    }
+}
+
+- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Opened reward based video ad.");
+}
+
+- (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad started playing.");
+    NSLog(@"admob奖励视频开始播放");
+}
+
+- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad is closed.");
+    NSLog(@"中途关闭admob奖励视频");
+}
+
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+   didRewardUserWithReward:(GADAdReward *)reward {
+    NSLog(@"有效的播放admob奖励视频");
+    [self showErrorText:@"观看广告失败"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dismissLoading];
+    });
+}
+
+- (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad will leave application.");
+    NSLog(@"点击admo奖励视频准备离开app");
+}
+
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+    didFailToLoadWithError:(NSError *)error {
+    NSLog(@"Reward based video ad failed to load.");
+    NSLog(@"admob奖励视频加载失败");
+    if (isRequestVideo) {
+        isRequestVideo = NO;
+        [self dismissLoading];
+        
+        [self showErrorText:@"获取广告失败"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissLoading];
+        });
+    }
+}
 
 
 @end

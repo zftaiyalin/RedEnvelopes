@@ -55,8 +55,17 @@
 		6BBF3C151EC34EB400C8029C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3C141EC34EB400C8029C /* CoreTelephony.framework */; };
 		6BBF3C171EC34EBA00C8029C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3C161EC34EBA00C8029C /* Security.framework */; };
 		6BBF3C191EC34EC100C8029C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3C181EC34EC100C8029C /* WebKit.framework */; };
-		6BBF3C331EC34FBA00C8029C /* UMVideo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6BBF3C311EC34FBA00C8029C /* UMVideo.bundle */; };
-		6BBF3C341EC34FBA00C8029C /* UMVideoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3C321EC34FBA00C8029C /* UMVideoSDK.a */; };
+		6BFABC291EDDA1AA0055FF10 /* ALiProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFABC1F1EDDA1AA0055FF10 /* ALiProgressHUD.m */; };
+		6BFABC2A1EDDA1AA0055FF10 /* HUD_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC211EDDA1AA0055FF10 /* HUD_error@2x.png */; };
+		6BFABC2B1EDDA1AA0055FF10 /* HUD_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC221EDDA1AA0055FF10 /* HUD_error@3x.png */; };
+		6BFABC2C1EDDA1AA0055FF10 /* HUD_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC231EDDA1AA0055FF10 /* HUD_info@2x.png */; };
+		6BFABC2D1EDDA1AA0055FF10 /* HUD_info@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC241EDDA1AA0055FF10 /* HUD_info@3x.png */; };
+		6BFABC2E1EDDA1AA0055FF10 /* HUD_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC251EDDA1AA0055FF10 /* HUD_success@2x.png */; };
+		6BFABC2F1EDDA1AA0055FF10 /* HUD_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BFABC261EDDA1AA0055FF10 /* HUD_success@3x.png */; };
+		6BFABC301EDDA1AA0055FF10 /* NSObject+ALiHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFABC281EDDA1AA0055FF10 /* NSObject+ALiHUD.m */; };
+		6BFABC331EDDA96A0055FF10 /* KaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFABC321EDDA96A0055FF10 /* KaiViewController.m */; };
+		6BFABC361EDDBA330055FF10 /* HongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFABC351EDDBA330055FF10 /* HongViewController.m */; };
+		6BFABC391EDDBAB00055FF10 /* HongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFABC381EDDBAB00055FF10 /* HongTableViewCell.m */; };
 		F83C2677C1B327BEBF4D9BD1 /* libPods-RedEnvelopes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A29C9AFC4BA8BCB9BAC94DEE /* libPods-RedEnvelopes.a */; };
 /* End PBXBuildFile section */
 
@@ -166,9 +175,22 @@
 		6BBF3C141EC34EB400C8029C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6BBF3C161EC34EBA00C8029C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6BBF3C181EC34EC100C8029C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		6BBF3C301EC34FBA00C8029C /* UMVideoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMVideoAd.h; sourceTree = "<group>"; };
-		6BBF3C311EC34FBA00C8029C /* UMVideo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMVideo.bundle; sourceTree = "<group>"; };
-		6BBF3C321EC34FBA00C8029C /* UMVideoSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UMVideoSDK.a; sourceTree = "<group>"; };
+		6BFABC1E1EDDA1AA0055FF10 /* ALiProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiProgressHUD.h; sourceTree = "<group>"; };
+		6BFABC1F1EDDA1AA0055FF10 /* ALiProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiProgressHUD.m; sourceTree = "<group>"; };
+		6BFABC211EDDA1AA0055FF10 /* HUD_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_error@2x.png"; sourceTree = "<group>"; };
+		6BFABC221EDDA1AA0055FF10 /* HUD_error@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_error@3x.png"; sourceTree = "<group>"; };
+		6BFABC231EDDA1AA0055FF10 /* HUD_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_info@2x.png"; sourceTree = "<group>"; };
+		6BFABC241EDDA1AA0055FF10 /* HUD_info@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_info@3x.png"; sourceTree = "<group>"; };
+		6BFABC251EDDA1AA0055FF10 /* HUD_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_success@2x.png"; sourceTree = "<group>"; };
+		6BFABC261EDDA1AA0055FF10 /* HUD_success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_success@3x.png"; sourceTree = "<group>"; };
+		6BFABC271EDDA1AA0055FF10 /* NSObject+ALiHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ALiHUD.h"; sourceTree = "<group>"; };
+		6BFABC281EDDA1AA0055FF10 /* NSObject+ALiHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ALiHUD.m"; sourceTree = "<group>"; };
+		6BFABC311EDDA96A0055FF10 /* KaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiViewController.h; sourceTree = "<group>"; };
+		6BFABC321EDDA96A0055FF10 /* KaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiViewController.m; sourceTree = "<group>"; };
+		6BFABC341EDDBA330055FF10 /* HongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HongViewController.h; sourceTree = "<group>"; };
+		6BFABC351EDDBA330055FF10 /* HongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HongViewController.m; sourceTree = "<group>"; };
+		6BFABC371EDDBAB00055FF10 /* HongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HongTableViewCell.h; sourceTree = "<group>"; };
+		6BFABC381EDDBAB00055FF10 /* HongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HongTableViewCell.m; sourceTree = "<group>"; };
 		7E1F9FECC3C401A89BC0F662 /* Pods-RedEnvelopes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedEnvelopes.release.xcconfig"; path = "Pods/Target Support Files/Pods-RedEnvelopes/Pods-RedEnvelopes.release.xcconfig"; sourceTree = "<group>"; };
 		A29C9AFC4BA8BCB9BAC94DEE /* libPods-RedEnvelopes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RedEnvelopes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -184,7 +206,6 @@
 				6BBF3C131EC34EA900C8029C /* AdSupport.framework in Frameworks */,
 				6BBF3C111EC34EA000C8029C /* libicucore.tbd in Frameworks */,
 				6BBF3C0F1EC34E9400C8029C /* AudioToolbox.framework in Frameworks */,
-				6BBF3C341EC34FBA00C8029C /* UMVideoSDK.a in Frameworks */,
 				6BBF3C0D1EC34E8C00C8029C /* CoreMotion.framework in Frameworks */,
 				6BBF3C0B1EC34E8600C8029C /* StoreKit.framework in Frameworks */,
 				6BBF3C091EC34E8000C8029C /* libz.tbd in Frameworks */,
@@ -239,13 +260,19 @@
 		6B510CDC1EC31702007BBBC6 /* RedEnvelopes */ = {
 			isa = PBXGroup;
 			children = (
-				6BBF3C2E1EC34FBA00C8029C /* lib */,
+				6BFABC1D1EDDA1AA0055FF10 /* ALiHUD */,
 				6BBF3BDE1EC3476B00C8029C /* Masonry */,
 				6BBF3B9B1EC3411600C8029C /* m2048 */,
 				6B510CE01EC31702007BBBC6 /* AppDelegate.h */,
 				6B510CE11EC31702007BBBC6 /* AppDelegate.m */,
 				6BBF3BA81EC3411600C8029C /* NewViewController.h */,
 				6BBF3BA91EC3411600C8029C /* NewViewController.m */,
+				6BFABC311EDDA96A0055FF10 /* KaiViewController.h */,
+				6BFABC321EDDA96A0055FF10 /* KaiViewController.m */,
+				6BFABC341EDDBA330055FF10 /* HongViewController.h */,
+				6BFABC351EDDBA330055FF10 /* HongViewController.m */,
+				6BFABC371EDDBAB00055FF10 /* HongTableViewCell.h */,
+				6BFABC381EDDBAB00055FF10 /* HongTableViewCell.m */,
 				6B510CE31EC31702007BBBC6 /* ViewController.h */,
 				6B510CE41EC31702007BBBC6 /* ViewController.m */,
 				6B510D101EC31BBC007BBBC6 /* img_0026.png */,
@@ -422,22 +449,29 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		6BBF3C2E1EC34FBA00C8029C /* lib */ = {
+		6BFABC1D1EDDA1AA0055FF10 /* ALiHUD */ = {
 			isa = PBXGroup;
 			children = (
-				6BBF3C2F1EC34FBA00C8029C /* include */,
-				6BBF3C311EC34FBA00C8029C /* UMVideo.bundle */,
-				6BBF3C321EC34FBA00C8029C /* UMVideoSDK.a */,
+				6BFABC1E1EDDA1AA0055FF10 /* ALiProgressHUD.h */,
+				6BFABC1F1EDDA1AA0055FF10 /* ALiProgressHUD.m */,
+				6BFABC201EDDA1AA0055FF10 /* images */,
+				6BFABC271EDDA1AA0055FF10 /* NSObject+ALiHUD.h */,
+				6BFABC281EDDA1AA0055FF10 /* NSObject+ALiHUD.m */,
 			);
-			path = lib;
+			path = ALiHUD;
 			sourceTree = "<group>";
 		};
-		6BBF3C2F1EC34FBA00C8029C /* include */ = {
+		6BFABC201EDDA1AA0055FF10 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				6BBF3C301EC34FBA00C8029C /* UMVideoAd.h */,
+				6BFABC211EDDA1AA0055FF10 /* HUD_error@2x.png */,
+				6BFABC221EDDA1AA0055FF10 /* HUD_error@3x.png */,
+				6BFABC231EDDA1AA0055FF10 /* HUD_info@2x.png */,
+				6BFABC241EDDA1AA0055FF10 /* HUD_info@3x.png */,
+				6BFABC251EDDA1AA0055FF10 /* HUD_success@2x.png */,
+				6BFABC261EDDA1AA0055FF10 /* HUD_success@3x.png */,
 			);
-			path = include;
+			path = images;
 			sourceTree = "<group>";
 		};
 		853AAE46CBDFC4B7ACD97827 /* Pods */ = {
@@ -519,7 +553,7 @@
 				TargetAttributes = {
 					6B510CD91EC31702007BBBC6 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = BW3X4QNV6N;
+						DevelopmentTeam = WD9BF79VSR;
 						ProvisioningStyle = Automatic;
 					};
 					6B510CF21EC31702007BBBC6 = {
@@ -561,12 +595,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFABC2E1EDDA1AA0055FF10 /* HUD_success@2x.png in Resources */,
+				6BFABC2C1EDDA1AA0055FF10 /* HUD_info@2x.png in Resources */,
 				6B510CED1EC31702007BBBC6 /* LaunchScreen.storyboard in Resources */,
 				6B510CEA1EC31702007BBBC6 /* Assets.xcassets in Resources */,
 				6BBF3BCA1EC3411600C8029C /* Main.storyboard in Resources */,
+				6BFABC2F1EDDA1AA0055FF10 /* HUD_success@3x.png in Resources */,
 				6B510D131EC31C1D007BBBC6 /* img_0027.png in Resources */,
+				6BFABC2B1EDDA1AA0055FF10 /* HUD_error@3x.png in Resources */,
+				6BFABC2D1EDDA1AA0055FF10 /* HUD_info@3x.png in Resources */,
 				6B510D111EC31BBC007BBBC6 /* img_0026.png in Resources */,
-				6BBF3C331EC34FBA00C8029C /* UMVideo.bundle in Resources */,
+				6BFABC2A1EDDA1AA0055FF10 /* HUD_error@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,15 +681,19 @@
 				6BBF3BF91EC3476B00C8029C /* MASConstraint.m in Sources */,
 				6BBF3BFC1EC3476B00C8029C /* MASViewAttribute.m in Sources */,
 				6BBF3BFA1EC3476B00C8029C /* MASConstraintMaker.m in Sources */,
+				6BFABC301EDDA1AA0055FF10 /* NSObject+ALiHUD.m in Sources */,
+				6BFABC331EDDA96A0055FF10 /* KaiViewController.m in Sources */,
 				6BBF3BCD1EC3411600C8029C /* M2ViewController.m in Sources */,
 				6BBF3BDB1EC3411600C8029C /* M2Overlay.m in Sources */,
 				6BBF3BD51EC3411600C8029C /* M2Cell.m in Sources */,
 				6BBF3BD01EC3411600C8029C /* M2GlobalState.m in Sources */,
+				6BFABC291EDDA1AA0055FF10 /* ALiProgressHUD.m in Sources */,
 				6BBF3BFD1EC3476B00C8029C /* MASViewConstraint.m in Sources */,
 				6BBF3C001EC3476B00C8029C /* View+MASAdditions.m in Sources */,
 				6BBF3BF81EC3476B00C8029C /* MASCompositeConstraint.m in Sources */,
 				6B510CE51EC31702007BBBC6 /* ViewController.m in Sources */,
 				6BBF3BD71EC3411600C8029C /* M2Scene.m in Sources */,
+				6BFABC361EDDBA330055FF10 /* HongViewController.m in Sources */,
 				6B510CE21EC31702007BBBC6 /* AppDelegate.m in Sources */,
 				6BBF3BFB1EC3476B00C8029C /* MASLayoutConstraint.m in Sources */,
 				6BBF3BCC1EC3411600C8029C /* M2SettingsViewController.m in Sources */,
@@ -664,6 +707,7 @@
 				6BBF3BFE1EC3476B00C8029C /* NSArray+MASAdditions.m in Sources */,
 				6BBF3C011EC3476B00C8029C /* ViewController+MASAdditions.m in Sources */,
 				6BBF3BCE1EC3411600C8029C /* NewViewController.m in Sources */,
+				6BFABC391EDDBAB00055FF10 /* HongTableViewCell.m in Sources */,
 				6BBF3BD91EC3411600C8029C /* M2GameManager.m in Sources */,
 				6BBF3BD61EC3411600C8029C /* M2Grid.m in Sources */,
 			);
@@ -817,7 +861,8 @@
 			baseConfigurationReference = 2D66BB5BDB7F7A47D4257A14 /* Pods-RedEnvelopes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BW3X4QNV6N;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WD9BF79VSR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RedEnvelopes/PrefixHeader.pch";
 				INFOPLIST_FILE = RedEnvelopes/Info.plist;
@@ -827,8 +872,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RedEnvelopes/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kdhc.RedEnvelopes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anfeng.RedEnvelopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -838,7 +884,8 @@
 			baseConfigurationReference = 7E1F9FECC3C401A89BC0F662 /* Pods-RedEnvelopes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BW3X4QNV6N;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WD9BF79VSR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RedEnvelopes/PrefixHeader.pch";
 				INFOPLIST_FILE = RedEnvelopes/Info.plist;
@@ -848,8 +895,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RedEnvelopes/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kdhc.RedEnvelopes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anfeng.RedEnvelopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
