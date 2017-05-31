@@ -111,6 +111,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"]) {
+ 
+        pinlunAlert = [[UIAlertView alloc] initWithTitle:@"5星好评获取插件权限"message:@"1.开启抢红包插件功能 \n2.所有外挂更新服务 \n3.解锁所有功能 \n获取权限后请重启app!!!" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
+        [pinlunAlert show];
+        
+    }
+
+}
 /*
 #pragma mark - Navigation
 
@@ -169,7 +181,7 @@
     
 //    HongViewController *ss = [[HongViewController alloc]init];
 //    [self.navigationController pushViewController:ss animated:YES];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"]) {
+    
         if (indexPath.section == 0) {
             
             
@@ -193,13 +205,6 @@
             }
         }
 
-    }else{
-    
-        
-       pinlunAlert = [[UIAlertView alloc] initWithTitle:@"提示"message:@"五星好评开启插件权限" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"评论",nil];
-       [pinlunAlert show];
-        
-    }
   
     
 }
@@ -233,9 +238,12 @@
 - (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
    didRewardUserWithReward:(GADAdReward *)reward {
     NSLog(@"有效的播放admob奖励视频");
+    
+   
     [self showErrorText:@"观看广告失败"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dismissLoading];
+        
     });
 }
 
