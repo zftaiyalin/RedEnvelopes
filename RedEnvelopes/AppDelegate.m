@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "NewViewController.h"
-
+#import "YYModel.h"
+#import "RedBoxModel.h"
+#import "AppUnitl.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +24,23 @@
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
+    
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设置格式：zzz表示时区
+    [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+    //NSDate转NSString
+    NSString *currentDateString = [dateFormatter stringFromDate:[NSDate date]];
+    NSError *error = nil;
+    
+    NSString *ss = [NSString stringWithFormat:@"http://opmams01o.bkt.clouddn.com/redbox.json?v=%@",currentDateString];
+    NSURL *xcfURL = [NSURL URLWithString:ss];
+    NSString *htmlString = [NSString stringWithContentsOfURL:xcfURL encoding:NSUTF8StringEncoding error:&error];
+    
+    RedBoxModel *model = [RedBoxModel yy_modelWithJSON:htmlString];
+    
+    [AppUnitl sharedManager].model = model;
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

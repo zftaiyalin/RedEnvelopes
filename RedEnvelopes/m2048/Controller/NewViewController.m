@@ -11,6 +11,7 @@
 #import "NSObject+ALiHUD.h"
 #import "KaiViewController.h"
 #import "HongViewController.h"
+#import "AppUnitl.h"
 @import GoogleMobileAds;
 
 @interface NewViewController ()<GADRewardBasedVideoAdDelegate>{
@@ -75,6 +76,14 @@
     }
     
     [self createAndLoadInterstitial];
+    
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"] && [AppUnitl sharedManager].model.isShow) {
+        
+        pinlunAlert = [[UIAlertView alloc] initWithTitle:[AppUnitl sharedManager].model.alertTitle message:[AppUnitl sharedManager].model.alertText delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
+        [pinlunAlert show];
+        
+    }
 }
 
 
@@ -115,12 +124,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"]) {
- 
-        pinlunAlert = [[UIAlertView alloc] initWithTitle:@"5星好评获取插件权限"message:@"1.开启抢红包插件功能 \n2.所有外挂更新服务 \n3.解锁所有功能 \n获取权限后请重启app!!!" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
-        [pinlunAlert show];
-        
-    }
+    
 
 }
 /*
