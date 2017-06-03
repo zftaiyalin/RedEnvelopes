@@ -41,7 +41,7 @@
     RedBoxModel *model = [RedBoxModel yy_modelWithJSON:htmlString];
     
     [AppUnitl sharedManager].model = model;
-    
+//    [AppUnitl sharedManager].model.isShow = YES;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
