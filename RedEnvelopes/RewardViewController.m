@@ -16,6 +16,7 @@
     int videoindex;
     BOOL isStart;
     BOOL realyPlay;
+
 }
 
 @end
@@ -30,6 +31,8 @@
 
 
 -(void)huoqujifen{
+    
+  @autoreleasepool {
     if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
         [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
     }else{
@@ -38,6 +41,7 @@
         [self showText:@"正在获取权限广告"];
         [self performSelector:@selector(pushRequest) withObject:nil afterDelay:15];
     }
+  }
 }
 
 -(void)pushRequest{
@@ -76,8 +80,8 @@
 */
 
 -(void)pushVideo{
-    [GADRewardBasedVideoAd sharedInstance].delegate = nil;
-    //创建一个消息对象
+//    [GADRewardBasedVideoAd sharedInstance].delegate = nil;
+//    创建一个消息对象
 //    NSNotification * notice = [NSNotification notificationWithName:@"123" object:nil userInfo:@{@"1":@"123"}];
 //    //发送消息
 //    [[NSNotificationCenter defaultCenter]postNotification:notice];
@@ -86,11 +90,34 @@
 }
 
 -(void)loadVideo{
+    
+    UIViewController *aa = [self currentViewController];
+    [aa dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     if (!realyPlay) {
         [self huoqujifen];
     }
 
 }
+
+
+- (UIViewController *)currentViewController {
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIViewController *vc = keyWindow.rootViewController;
+    while (vc.presentedViewController) {
+        vc = vc.presentedViewController;
+        
+        if ([vc isKindOfClass:[UINavigationController class]]) {
+            vc = [(UINavigationController *)vc visibleViewController];
+        } else if ([vc isKindOfClass:[UITabBarController class]]) {
+            vc = [(UITabBarController *)vc selectedViewController];
+        }
+    }
+    return vc;
+}
+
+
 #pragma mark GADRewardBasedVideoAdDelegate implementation
 
 - (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
@@ -113,6 +140,7 @@
 - (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
     NSLog(@"Reward based video ad started playing.");
     NSLog(@"admob奖励视频开始播放");
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadVideo) object:nil];
     realyPlay = YES;
 }
 
@@ -126,6 +154,11 @@
     NSLog(@"有效的播放admob奖励视频");
     isStart = NO;
     realyPlay = NO;
+    
+    UIViewController *aa = [self currentViewController];
+    [aa dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pushVideo) object:nil];
     [self pushVideo];
 }
