@@ -11,6 +11,7 @@
 #import "YYModel.h"
 #import "RedBoxModel.h"
 #import "AppUnitl.h"
+#import "RewardViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -41,22 +42,55 @@
     RedBoxModel *model = [RedBoxModel yy_modelWithJSON:htmlString];
     
     [AppUnitl sharedManager].model = model;
-//    [AppUnitl sharedManager].model.isShow = YES;
+    [AppUnitl sharedManager].model.isShow = YES;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+//    UINavigationController *secondNavigationController = [[UINavigationController alloc]
+//                                                          initWithRootViewController:[[NewViewController alloc] init]];
+    
+    
     UINavigationController *secondNavigationController = [[UINavigationController alloc]
-                                                          initWithRootViewController:[[NewViewController alloc] init]];
+                                                          initWithRootViewController:[[RewardViewController alloc] init]];
     
 
     secondNavigationController.navigationBar.barTintColor = [UIColor blackColor];
     NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     [secondNavigationController.navigationBar setTitleTextAttributes:dict];
+    
+    
+//    RewardViewController *vc = [[RewardViewController alloc]init];
+    
 
     self.window.rootViewController = secondNavigationController;
     [self.window makeKeyAndVisible];
     
+    
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(notice:) name:@"123" object:nil];
+    
     return YES;
+}
+
+-(void)notice:(id)sender{
+    NSLog(@"%@",sender);
+    
+    self.window.rootViewController = nil;
+    
+    UINavigationController *secondNavigationController = [[UINavigationController alloc]
+                                                          initWithRootViewController:[[RewardViewController alloc] init]];
+    
+    
+    secondNavigationController.navigationBar.barTintColor = [UIColor blackColor];
+    NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    [secondNavigationController.navigationBar setTitleTextAttributes:dict];
+    
+    
+    //    RewardViewController *vc = [[RewardViewController alloc]init];
+    
+    
+    self.window.rootViewController = secondNavigationController;
 }
 
 

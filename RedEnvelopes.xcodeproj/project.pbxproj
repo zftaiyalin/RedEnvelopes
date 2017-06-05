@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3CEBA91EE2A8FA004C93EB /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */; };
 		6B510CDF1EC31702007BBBC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CDE1EC31702007BBBC6 /* main.m */; };
 		6B510CE21EC31702007BBBC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CE11EC31702007BBBC6 /* AppDelegate.m */; };
 		6B510CE51EC31702007BBBC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CE41EC31702007BBBC6 /* ViewController.m */; };
@@ -90,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		2D66BB5BDB7F7A47D4257A14 /* Pods-RedEnvelopes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedEnvelopes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedEnvelopes/Pods-RedEnvelopes.debug.xcconfig"; sourceTree = "<group>"; };
+		6B3CEBA71EE2A8FA004C93EB /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
+		6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		6B510CDA1EC31702007BBBC6 /* RedEnvelopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedEnvelopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B510CDE1EC31702007BBBC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B510CE01EC31702007BBBC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				6BBF3B9B1EC3411600C8029C /* m2048 */,
 				6B510CE01EC31702007BBBC6 /* AppDelegate.h */,
 				6B510CE11EC31702007BBBC6 /* AppDelegate.m */,
+				6B3CEBA71EE2A8FA004C93EB /* RewardViewController.h */,
+				6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */,
 				6B6F8A951EE0E35E00F80074 /* RedBoxModel.h */,
 				6B6F8A961EE0E35E00F80074 /* RedBoxModel.m */,
 				6B6F8A981EE0E45E00F80074 /* AppUnitl.h */,
@@ -690,6 +695,7 @@
 			files = (
 				6BBF3BF91EC3476B00C8029C /* MASConstraint.m in Sources */,
 				6B6F8A971EE0E35E00F80074 /* RedBoxModel.m in Sources */,
+				6B3CEBA91EE2A8FA004C93EB /* RewardViewController.m in Sources */,
 				6BBF3BFC1EC3476B00C8029C /* MASViewAttribute.m in Sources */,
 				6BBF3BFA1EC3476B00C8029C /* MASConstraintMaker.m in Sources */,
 				6BFABC301EDDA1AA0055FF10 /* NSObject+ALiHUD.m in Sources */,
