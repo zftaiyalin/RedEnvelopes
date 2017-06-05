@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3CEBA91EE2A8FA004C93EB /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */; };
 		6B510CDF1EC31702007BBBC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CDE1EC31702007BBBC6 /* main.m */; };
 		6B510CE21EC31702007BBBC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CE11EC31702007BBBC6 /* AppDelegate.m */; };
 		6B510CE51EC31702007BBBC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510CE41EC31702007BBBC6 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 		6B510D031EC31703007BBBC6 /* RedEnvelopesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B510D021EC31703007BBBC6 /* RedEnvelopesUITests.m */; };
 		6B510D111EC31BBC007BBBC6 /* img_0026.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B510D101EC31BBC007BBBC6 /* img_0026.png */; };
 		6B510D131EC31C1D007BBBC6 /* img_0027.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B510D121EC31C1D007BBBC6 /* img_0027.png */; };
+		6B6F8A971EE0E35E00F80074 /* RedBoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F8A961EE0E35E00F80074 /* RedBoxModel.m */; };
+		6B6F8A9A1EE0E45E00F80074 /* AppUnitl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F8A991EE0E45E00F80074 /* AppUnitl.m */; };
 		6BBF3B401EC33E8A00C8029C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3B3F1EC33E8A00C8029C /* CoreGraphics.framework */; };
 		6BBF3B421EC33E9500C8029C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBF3B411EC33E9500C8029C /* SpriteKit.framework */; };
 		6BBF3BC91EC3411600C8029C /* M2Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBF3B9E1EC3411600C8029C /* M2Theme.m */; };
@@ -88,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		2D66BB5BDB7F7A47D4257A14 /* Pods-RedEnvelopes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedEnvelopes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedEnvelopes/Pods-RedEnvelopes.debug.xcconfig"; sourceTree = "<group>"; };
+		6B3CEBA71EE2A8FA004C93EB /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
+		6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		6B510CDA1EC31702007BBBC6 /* RedEnvelopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedEnvelopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B510CDE1EC31702007BBBC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B510CE01EC31702007BBBC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +110,10 @@
 		6B510D041EC31703007BBBC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B510D101EC31BBC007BBBC6 /* img_0026.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0026.png; sourceTree = "<group>"; };
 		6B510D121EC31C1D007BBBC6 /* img_0027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0027.png; sourceTree = "<group>"; };
+		6B6F8A951EE0E35E00F80074 /* RedBoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBoxModel.h; sourceTree = "<group>"; };
+		6B6F8A961EE0E35E00F80074 /* RedBoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBoxModel.m; sourceTree = "<group>"; };
+		6B6F8A981EE0E45E00F80074 /* AppUnitl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUnitl.h; sourceTree = "<group>"; };
+		6B6F8A991EE0E45E00F80074 /* AppUnitl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUnitl.m; sourceTree = "<group>"; };
 		6BBF3B3F1EC33E8A00C8029C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6BBF3B411EC33E9500C8029C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		6BBF3B9D1EC3411600C8029C /* M2Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2Theme.h; sourceTree = "<group>"; };
@@ -265,6 +274,12 @@
 				6BBF3B9B1EC3411600C8029C /* m2048 */,
 				6B510CE01EC31702007BBBC6 /* AppDelegate.h */,
 				6B510CE11EC31702007BBBC6 /* AppDelegate.m */,
+				6B3CEBA71EE2A8FA004C93EB /* RewardViewController.h */,
+				6B3CEBA81EE2A8FA004C93EB /* RewardViewController.m */,
+				6B6F8A951EE0E35E00F80074 /* RedBoxModel.h */,
+				6B6F8A961EE0E35E00F80074 /* RedBoxModel.m */,
+				6B6F8A981EE0E45E00F80074 /* AppUnitl.h */,
+				6B6F8A991EE0E45E00F80074 /* AppUnitl.m */,
 				6BBF3BA81EC3411600C8029C /* NewViewController.h */,
 				6BBF3BA91EC3411600C8029C /* NewViewController.m */,
 				6BFABC311EDDA96A0055FF10 /* KaiViewController.h */,
@@ -679,6 +694,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BBF3BF91EC3476B00C8029C /* MASConstraint.m in Sources */,
+				6B6F8A971EE0E35E00F80074 /* RedBoxModel.m in Sources */,
+				6B3CEBA91EE2A8FA004C93EB /* RewardViewController.m in Sources */,
 				6BBF3BFC1EC3476B00C8029C /* MASViewAttribute.m in Sources */,
 				6BBF3BFA1EC3476B00C8029C /* MASConstraintMaker.m in Sources */,
 				6BFABC301EDDA1AA0055FF10 /* NSObject+ALiHUD.m in Sources */,
@@ -687,6 +704,7 @@
 				6BBF3BDB1EC3411600C8029C /* M2Overlay.m in Sources */,
 				6BBF3BD51EC3411600C8029C /* M2Cell.m in Sources */,
 				6BBF3BD01EC3411600C8029C /* M2GlobalState.m in Sources */,
+				6B6F8A9A1EE0E45E00F80074 /* AppUnitl.m in Sources */,
 				6BFABC291EDDA1AA0055FF10 /* ALiProgressHUD.m in Sources */,
 				6BBF3BFD1EC3476B00C8029C /* MASViewConstraint.m in Sources */,
 				6BBF3C001EC3476B00C8029C /* View+MASAdditions.m in Sources */,

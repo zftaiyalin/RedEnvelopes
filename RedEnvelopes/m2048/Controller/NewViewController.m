@@ -11,12 +11,14 @@
 #import "NSObject+ALiHUD.h"
 #import "KaiViewController.h"
 #import "HongViewController.h"
+#import "AppUnitl.h"
 @import GoogleMobileAds;
 
 @interface NewViewController ()<GADRewardBasedVideoAdDelegate>{
     BOOL isAdmob;
     BOOL isRequestVideo;
     UIAlertView *pinlunAlert;
+    int videoindex;
 }
 @property(nonatomic, strong) GADInterstitial *interstitial;
 @end
@@ -29,7 +31,7 @@
     }else{
         [self requestRewardedVideo];
         isRequestVideo = YES;
-        [self showText:@"正在获取积分广告"];
+        [self showText:@"正在获取权限广告"];
     }
 }
 
@@ -41,9 +43,12 @@
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
     self.view.backgroundColor = [UIColor colorWithHexString:@"#efeff5"];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"观看广告" style:UIBarButtonItemStylePlain target:self action:@selector(huoqujifen)];
+
+    if ([AppUnitl sharedManager].model.isShow) {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"观看广告" style:UIBarButtonItemStylePlain     target:self action:@selector(huoqujifen)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
     
-    self.navigationItem.rightBarButtonItem = item;
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -75,6 +80,14 @@
     }
     
     [self createAndLoadInterstitial];
+    
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"] && [AppUnitl sharedManager].model.isShow) {
+        
+        pinlunAlert = [[UIAlertView alloc] initWithTitle:[AppUnitl sharedManager].model.alertTitle message:[AppUnitl sharedManager].model.alertText delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
+        [pinlunAlert show];
+        
+    }
 }
 
 
@@ -115,12 +128,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"]) {
- 
-        pinlunAlert = [[UIAlertView alloc] initWithTitle:@"5星好评获取插件权限"message:@"1.开启抢红包插件功能 \n2.所有外挂更新服务 \n3.解锁所有功能 \n获取权限后请重启app!!!" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
-        [pinlunAlert show];
-        
-    }
+    
 
 }
 /*
@@ -136,7 +144,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return [AppUnitl sharedManager].model.isShow ? 2 : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -155,7 +163,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0) {
-        cell.textLabel.text = @"自动抢红包插件";
+        cell.textLabel.text = [AppUnitl sharedManager].model.isShow ? @"自动抢红包插件" : @"开始游戏";
        
     }else{
         cell.textLabel.text = @"查看抢红包战绩";
@@ -165,9 +173,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
         if (alertView == pinlunAlert) {
-            NSString *appID = @"1241876168";
-            NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", appID];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1241876168&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pinglun"];
         }else{
             [self huoqujifen];
@@ -183,18 +190,18 @@
 //    [self.navigationController pushViewController:ss animated:YES];
     
         if (indexPath.section == 0) {
-            
-            
-            UIAlertView *infoAlert = [[UIAlertView alloc] initWithTitle:@"提示"message:@"观看广告开启插件" delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"观看",nil];
-            [infoAlert show];
-            
-            
-        }else{
-            
-            if (self.interstitial.isReady && !isAdmob) {
-                isAdmob = YES;
-                [self.interstitial presentFromRootViewController:self];
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"] && [AppUnitl sharedManager].model.isShow) {
                 
+                pinlunAlert = [[UIAlertView alloc] initWithTitle:[AppUnitl sharedManager].model.alertTitle message:[AppUnitl sharedManager].model.alertText delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"马上获取",nil];
+                [pinlunAlert show];
+                
+                return;
+                
+            }
+            if ([AppUnitl sharedManager].model.isShow) {
+                
+                UIAlertView *infoAlert = [[UIAlertView alloc] initWithTitle:@"提示"message:[NSString stringWithFormat:@"观看%d次广告永久获取插件权限",3-videoindex] delegate:self   cancelButtonTitle:@"待会儿" otherButtonTitles:@"观看",nil];
+                [infoAlert show];
             }else{
                 UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 //将取出的storyboard里面的控制器被所需的控制器指着。
@@ -202,11 +209,30 @@
                 [self presentViewController:jVC animated:NO completion:^{
                     
                 }];
+                
+                
             }
+            
+            
+            
+        }else{
+            
+                if (self.interstitial.isReady && !isAdmob) {
+          
+                    isAdmob = YES;
+                    [self.interstitial presentFromRootViewController:self];
+                
+                }else{
+                    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    //将取出的storyboard里面的控制器被所需的控制器指着。
+                    M2ViewController *jVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"M2028ViewController"];
+                    [self presentViewController:jVC animated:NO completion:^{
+                        
+                    }];
+                }
+            
         }
 
-  
-    
 }
 
 
@@ -239,12 +265,30 @@
    didRewardUserWithReward:(GADAdReward *)reward {
     NSLog(@"有效的播放admob奖励视频");
     
-   
-    [self showErrorText:@"观看广告失败"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dismissLoading];
+    videoindex ++;
+    
+    if (videoindex == 3) {
+        [self showText:@"正在获取插件权限..."];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissLoading];
+            [self showErrorText:@"获取权限失败，请检查您的操作是否正确。"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self dismissLoading];
+                videoindex = 0;
+            });
+            
+        });
+    }else{
         
-    });
+        
+        [self showSuccessText:[NSString stringWithFormat:@"再观看%d次广告获取插件永久权限",3-videoindex]];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissLoading];
+        });
+    }
+   
 }
 
 - (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
