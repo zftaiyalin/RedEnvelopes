@@ -184,6 +184,7 @@
 		6BBF3C141EC34EB400C8029C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6BBF3C161EC34EBA00C8029C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6BBF3C181EC34EC100C8029C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6BF3CF2A1EE7FA8C00240E94 /* RedEnvelopes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RedEnvelopes.entitlements; sourceTree = "<group>"; };
 		6BFABC1E1EDDA1AA0055FF10 /* ALiProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiProgressHUD.h; sourceTree = "<group>"; };
 		6BFABC1F1EDDA1AA0055FF10 /* ALiProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiProgressHUD.m; sourceTree = "<group>"; };
 		6BFABC211EDDA1AA0055FF10 /* HUD_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_error@2x.png"; sourceTree = "<group>"; };
@@ -269,6 +270,7 @@
 		6B510CDC1EC31702007BBBC6 /* RedEnvelopes */ = {
 			isa = PBXGroup;
 			children = (
+				6BF3CF2A1EE7FA8C00240E94 /* RedEnvelopes.entitlements */,
 				6BFABC1D1EDDA1AA0055FF10 /* ALiHUD */,
 				6BBF3BDE1EC3476B00C8029C /* Masonry */,
 				6BBF3B9B1EC3411600C8029C /* m2048 */,
@@ -570,6 +572,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WD9BF79VSR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					6B510CF21EC31702007BBBC6 = {
 						CreatedOnToolsVersion = 8.3.2;

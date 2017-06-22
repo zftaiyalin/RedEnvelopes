@@ -8,14 +8,9 @@
 
 #import "RewardViewController.h"
 #import "NSObject+ALiHUD.h"
-@import GoogleMobileAds;
 
-@interface RewardViewController ()<GADRewardBasedVideoAdDelegate>{
+@interface RewardViewController (){
 
-    BOOL isRequestVideo;
-    int videoindex;
-    BOOL isStart;
-    BOOL realyPlay;
 
 }
 
@@ -23,42 +18,15 @@
 
 @implementation RewardViewController
 
-- (void)requestRewardedVideo {
-    GADRequest *request = [GADRequest request];
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
-                                           withAdUnitID:@"ca-app-pub-3676267735536366/8845808532"];
-}
 
 
--(void)huoqujifen{
-    
-  @autoreleasepool {
-    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-    }else{
-        [self requestRewardedVideo];
-        isRequestVideo = YES;
-        [self showText:@"正在获取权限广告"];
-        [self performSelector:@selector(pushRequest) withObject:nil afterDelay:15];
-    }
-  }
-}
-
--(void)pushRequest{
-    if (!isStart) {
-        [self requestRewardedVideo];
-        [self performSelector:@selector(pushRequest) withObject:nil afterDelay:15];
-    }else{
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pushRequest) object:nil];
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [GADRewardBasedVideoAd sharedInstance].delegate = self;
-    [self requestRewardedVideo];
+
+
     // Do any additional setup after loading the view.
-    [self performSelector:@selector(huoqujifen) withObject:nil afterDelay:1];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,110 +47,10 @@
 }
 */
 
--(void)pushVideo{
-//    [GADRewardBasedVideoAd sharedInstance].delegate = nil;
-//    创建一个消息对象
-//    NSNotification * notice = [NSNotification notificationWithName:@"123" object:nil userInfo:@{@"1":@"123"}];
-//    //发送消息
-//    [[NSNotificationCenter defaultCenter]postNotification:notice];
-    
-    [self huoqujifen];
-}
-
--(void)loadVideo{
-    
-    UIViewController *aa = [self currentViewController];
-    [aa dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    if (!realyPlay) {
-        [self huoqujifen];
-    }
-
-}
 
 
-- (UIViewController *)currentViewController {
-    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-    UIViewController *vc = keyWindow.rootViewController;
-    while (vc.presentedViewController) {
-        vc = vc.presentedViewController;
-        
-        if ([vc isKindOfClass:[UINavigationController class]]) {
-            vc = [(UINavigationController *)vc visibleViewController];
-        } else if ([vc isKindOfClass:[UITabBarController class]]) {
-            vc = [(UITabBarController *)vc selectedViewController];
-        }
-    }
-    return vc;
-}
 
 
-#pragma mark GADRewardBasedVideoAdDelegate implementation
-
-- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Reward based video ad is received.");
-    if (isRequestVideo) {
-        isRequestVideo = NO;
-        [self dismissLoading];
-        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-    }
-}
-
-- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Opened reward based video ad.");
-    isStart = YES;
-    realyPlay = NO;
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pushVideo) object:nil];
-    [self performSelector:@selector(loadVideo) withObject:nil afterDelay:5];
-}
-
-- (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Reward based video ad started playing.");
-    NSLog(@"admob奖励视频开始播放");
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadVideo) object:nil];
-    realyPlay = YES;
-}
-
-- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Reward based video ad is closed.");
-    NSLog(@"关闭admob奖励视频");
-}
-
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-   didRewardUserWithReward:(GADAdReward *)reward {
-    NSLog(@"有效的播放admob奖励视频");
-    isStart = NO;
-    realyPlay = NO;
-    
-    UIViewController *aa = [self currentViewController];
-    [aa dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pushVideo) object:nil];
-    [self pushVideo];
-}
-
-- (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    NSLog(@"Reward based video ad will leave application.");
-    NSLog(@"点击admo奖励视频准备离开app");
-}
-
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-    rewardBasedVideoAdDidReceiveAd:(NSError *)error {
-    NSLog(@"Reward based video ad failed to load.");
-    NSLog(@"admob奖励视频加载失败");
-    if (isRequestVideo) {
-        isRequestVideo = NO;
-        [self dismissLoading];
-        
-        [self showErrorText:@"获取广告失败"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self dismissLoading];
-            [self huoqujifen];
-        });
-    }
-}
 
 
 @end

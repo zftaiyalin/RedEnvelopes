@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-RedEnvelopes.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A7E3B175EA3469AB35BF853AC9B486D</key>
+		<key>B762E61CA5269521C79CB42D88FACCD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>680733788FE7C824E2C9E240A4E9D2BD</key>
+		<key>CAA319224D986051401545A56E5FF558</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>884B343E1B0BB01E76E3FE7E43228E91</key>
+		<key>DEA82BB62113A440F08D84124597CEF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C50F87FC26353C4AADE78F97333EC0AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E1BBB76ADBF2EF4EF2CE5DF6BBC77296</key>
+		<key>E0C507404C2DF4136B235549F5BA2E6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

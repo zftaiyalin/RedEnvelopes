@@ -42,7 +42,7 @@
     RedBoxModel *model = [RedBoxModel yy_modelWithJSON:htmlString];
     
     [AppUnitl sharedManager].model = model;
-    [AppUnitl sharedManager].model.isShow = YES;
+//    [AppUnitl sharedManager].model.isShow = YES;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -50,19 +50,19 @@
 //                                                          initWithRootViewController:[[NewViewController alloc] init]];
     
     
-    UINavigationController *secondNavigationController = [[UINavigationController alloc]
-                                                          initWithRootViewController:[[RewardViewController alloc] init]];
+//    UINavigationController *secondNavigationController = [[UINavigationController alloc]
+//                                                          initWithRootViewController:[[RewardViewController alloc] init]];
     
 
-    secondNavigationController.navigationBar.barTintColor = [UIColor blackColor];
-    NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    [secondNavigationController.navigationBar setTitleTextAttributes:dict];
+//    secondNavigationController.navigationBar.barTintColor = [UIColor blackColor];
+//    NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//    [secondNavigationController.navigationBar setTitleTextAttributes:dict];
     
     
 //    RewardViewController *vc = [[RewardViewController alloc]init];
     
 
-    self.window.rootViewController = secondNavigationController;
+    self.window.rootViewController = [[NewViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     
