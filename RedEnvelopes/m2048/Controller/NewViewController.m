@@ -53,9 +53,7 @@
         make.centerX.equalTo(self.view);
         make.top.equalTo(imageview.mas_bottom).offset(30);
     }];
-    
-    
-    
+
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pinglun"] && [AppUnitl sharedManager].model.isShow) {
         
@@ -66,6 +64,15 @@
 }
 
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        NSString *str = [NSString stringWithFormat:
+                         @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+                         @"1241876168"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pinglun"];
+    }
+}
 
 
 -(void)push{
